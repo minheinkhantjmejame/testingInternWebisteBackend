@@ -21,7 +21,7 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
 
-    <style>
+    <style type="text/css">
         body {
             font-family: 'Noto Sans Myanmar', sans-serif;
         }
@@ -40,9 +40,9 @@
                     <span id="dropdownLabel">EN</span> <i class="bi bi-chevron-down"></i>
                 </button>
                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                    <li><a class="dropdown-item" href="#">EN</a></li>
-                    <li><a class="dropdown-item" href="#">THAI</a></li>
-                    <li><a class="dropdown-item" href="#">MYAN</a></li>
+                    <li><a class="dropdown-item" href="#" onclick="updateLanguage('en')">EN</a></li>
+                    <li><a class="dropdown-item" href="#" onclick="updateLanguage('th')">THAI</a></li>
+                    <li><a class="dropdown-item" href="#" onclick="updateLanguage('my')">MYAN</a></li>
                 </ul>
             </div>
 
