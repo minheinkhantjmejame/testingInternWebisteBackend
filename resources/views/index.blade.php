@@ -67,13 +67,7 @@
     <section class="hero-section" style="background-color:#fff;">
         <div class="container d-flex align-items-center justify-content-between">
             <div class="slogan">
-                            <h1 class="fw-bold display-5">
-                    <span data-translate="HI. WELCOME TO INTERNPLUS">HI. WELCOME TO</span><br>
-                    IN<span style="color:#3c3f7c;">T</span><span style="color:#4346a7;">E</span>
-                    <span style="color:#4a4ec4;">R</span><span style="color:#5c60cf;">N</span>
-                    <span style="color:#676bd6;">P</span><span style="color:#777adf;">L</span>
-                    <span style="color:#888bea;">U</span><span style="color:#888cea;">S</span>
-                </h1>
+                <h1 class="fw-bold display-5"><span data-translate="HI. WELCOME TO">HI. WELCOME TO</span><br>IN<span style="color:#3c3f7c;">T</span><span style="color:#4346a7;">E</span><span style="color:#4a4ec4;">R</span><span style="color:#5c60cf;">N</span><span style="color:#676bd6;">P</span><span style="color:#777adf;">L</span><span style="color:#888bea;">U</span><span style="color:#888cea;">S</span></h1>
                 <p class="lead" style="font-size:20px; font-weight:bold;" data-translate="Internship application system of Vanness Plus Consulting Co., Ltd.">
                     Internship application system by <br> Vanness Plus Consulting Co., Ltd.
                 </p>
