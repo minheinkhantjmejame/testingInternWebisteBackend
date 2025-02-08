@@ -126,7 +126,7 @@ body {
                 </div>
             </div>
             <div class="category-tabs text-center mb-4">
-                <button class="category-btn btn btn-outline-secondary active" data-category="IT" data-translate="Information Technology" onclick="filterCategory('IT')">IT</button>
+                <button class="category-btn btn btn-outline-secondary active" data-category="IT" data-translate="IT" onclick="filterCategory('IT')">IT</button>
                 <button class="category-btn btn btn-outline-secondary" data-category="Marketing" data-translate="Marketing" onclick="filterCategory('Marketing')">Marketing</button>
                 <button class="category-btn btn btn-outline-secondary" data-category="Human Resources" data-translate="Human Resources" onclick="filterCategory('Human Resources')">Human Resources</button>
                 <button class="category-btn btn btn-outline-secondary" data-category="Translation" data-translate="Translation" onclick="filterCategory('Translation')">Translation</button>
