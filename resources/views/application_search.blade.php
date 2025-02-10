@@ -465,39 +465,65 @@
     });
 });
 
-    document.addEventListener("DOMContentLoaded", function() {
-        const searchButton = document.querySelector('.app-search-button');
-        const appIdInputs = document.querySelectorAll('.app-id-input');
-        const internshipDetails = document.querySelector('.internship-details');
+document.addEventListener("DOMContentLoaded", function() {
+    const searchButton = document.querySelector('.app-search-button');
+    const appIdInputs = document.querySelectorAll('.app-id-input');
+    const internshipDetails = document.querySelector('.internship-details');
 
-        // Hide the internship details on page load
-        internshipDetails.style.display = 'none';
+    // Hide internship details on page load
+    internshipDetails.style.display = 'none';
 
-        function getAppId() {
-            return Array.from(appIdInputs).map(input => input.value).join('');
+    function getAppId() {
+        return Array.from(appIdInputs).map(input => input.value).join('');
+    }
+
+    searchButton.addEventListener('click', function() {
+        const appId = getAppId();
+        if (appId === "112987630") {  // Replace with dynamic ID check if needed
+            internshipDetails.style.display = 'block';
+        } else {
+            alert('No application found with that ID.');
+            internshipDetails.style.display = 'none';
         }
+    });
 
-        searchButton.addEventListener('click', function() {
-            const appId = getAppId();
-            if (appId === "112987630") {  // Assuming "112987630" is a valid ID for demonstration
-                internshipDetails.style.display = 'block';
-            } else {
-                alert('No application found with that ID.');
-                internshipDetails.style.display = 'none';
+    appIdInputs.forEach((input, index, array) => {
+        input.addEventListener('keyup', function(event) {
+            if (this.value.length === 1 && index !== array.length - 1) {
+                array[index + 1].focus(); // Move to next input if a digit is entered
+            } else if (event.key === "Backspace" && index !== 0 && this.value === "") {
+                array[index - 1].focus(); // Move back to previous input when deleting
             }
         });
 
-        document.querySelectorAll('.app-id-input').forEach((input, index, array) => {
-    input.addEventListener('keyup', function(event) {
-        if (this.value.length === 1 && index !== array.length - 1) {
-            array[index + 1].focus(); // Move to next input if a digit is entered
-        } else if (event.key === "Backspace" && index !== 0 && this.value === "") {
-            array[index - 1].focus(); // Move back to previous input when deleting
-        }
+        // **Fix for Paste Event**
+        input.addEventListener('paste', function(event) {
+            event.preventDefault(); // Prevent default paste behavior
+            let pasteData = (event.clipboardData || window.clipboardData).getData('text');
+
+            // Remove non-numeric characters and limit to available input boxes
+            pasteData = pasteData.replace(/\D/g, '').slice(0, array.length);
+
+            // Clear all input boxes
+            array.forEach(inp => inp.value = '');
+
+            // Distribute pasted characters
+            pasteData.split('').forEach((char, i) => {
+                if (array[i]) {
+                    array[i].value = char;
+                }
+            });
+
+            // Focus the last filled input
+            if (pasteData.length < array.length) {
+                array[pasteData.length].focus();
+            } else {
+                array[array.length - 1].focus();
+            }
+        });
     });
 });
 
-});
 
 
     </script>
