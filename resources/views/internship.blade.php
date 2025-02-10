@@ -195,7 +195,7 @@
                 <form>
                     <div class="mb-3">
                         <label for="firstName" class="form-label" data-translate="First Name">First Name</label>
-                        <input type="text" class="form-control internship" id="firstName" required>
+                        <input type="text" class="form-control internship" id="firstName" required pattern="[A-Za-z\s]+" required>
                     </div>
                     <div class="mb-3">
                         <label for="lastName" class="form-label" data-translate="Last Name">Last Name</label>
@@ -207,8 +207,28 @@
                     </div>
                     <div class="mb-3">
                         <label for="phone" class="form-label" data-translate="Phone Number">Phone Number</label>
-                        <input type="tel" class="form-control internship" id="phone" required>
+                        <div class="input-group">
+                            <!-- Country Code Dropdown (10%) -->
+                            <div class="col-2" style="border:1px solid black; border-radius:4px; border-top-right-radius:0px; border-bottom-right-radius:0px;">
+                                <select class="form-select" id="countryCode" style="border:none;">
+                                    <option value="+1">US +1 </option>
+                                    <option value="+66">TH +66</option>
+                                    <option value="+95">MM +95</option>
+                                    <option value="+44">GB +44</option>
+                                    <option value="+91">IN +91</option>
+                                    <option value="+61">AU +61</option>
+                                    <option value="+81">JP +81</option>
+                                </select>
+                            </div>
+
+                            <!-- Phone Number Input (90%) -->
+                            <div class="col-10">
+                                <input type="tel" class="form-control internship" style="border-top-left-radius:0px;border-bottom-left-radius:0px;" id="phone" required pattern="[0-9]+" title="Only numbers are allowed" placeholder="Enter your number">
+                            </div>
+                        </div>
                     </div>
+
+
                     <p class="mb-2" style="font-size:30px;" data-translate="Your CV/RESUME">Your CV/RESUME</p>
                     <div class="input-group mb-3" onclick="document.getElementById('cvFileInput').click();">                        
                         <label class="input-group-text" for="cvFileInput">
@@ -417,6 +437,18 @@ document.addEventListener("DOMContentLoaded", () => {
       let activeButton = null; // Tracks whether Start or End button is active
       let startDate = null;
       let endDate = null;
+
+      document.getElementById("firstName").addEventListener("input", function() {
+        this.value = this.value.replace(/[^a-zA-Z\s]/g, "");
+    });
+
+    document.getElementById("lastName").addEventListener("input", function() {
+        this.value = this.value.replace(/[^a-zA-Z\s]/g, "");
+    });
+
+    document.getElementById("phone").addEventListener("input", function() {
+        this.value = this.value.replace(/[^0-9]/g, ""); // Only allows numbers
+    });
 
       // Populate year dropdown
       function populateYears() {
